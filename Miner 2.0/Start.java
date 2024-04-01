@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.math.BigInteger;
 
 public class Start {
@@ -7,7 +8,7 @@ public class Start {
     public static BigInteger atual;
     public static PrimoNode head = null;
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
 
         Loader.load();
         

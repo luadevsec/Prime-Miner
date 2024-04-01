@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.math.BigInteger;
 
 public class Miner {
@@ -6,7 +7,7 @@ public class Miner {
 
     private PrimoNode pointer = Start.head;
 
-    public void mine(){
+    public void mine() throws IOException{
         BigInteger gen = Generator.generate();
         BigInteger meia = gen.divide(BigInteger.valueOf(2));
     
@@ -21,8 +22,7 @@ public class Miner {
         }
     
         if(isPrime){
-            System.out.println(gen);
-            PrimoNode.add(gen);
+            Savior.save(gen);
         }
     }
     
