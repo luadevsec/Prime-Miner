@@ -5,8 +5,8 @@ public class Generator {
     private static final BigInteger TWO = new BigInteger("2");
 
     public static BigInteger generate() {
-        BigInteger primo = Start.atual;
-        Start.atual = Start.atual.add(TWO);
-        return primo;
+        BigInteger tryPrimo = Start.atual.add(TWO);
+        Start.atual = tryPrimo;
+        return tryPrimo;
     }
 }

@@ -4,7 +4,10 @@ public class Loader {
     // classe responsavel por carregar os dados no inicio do programa
 
     public static void load(){
-        Start.atual = new BigInteger("3");
+        PrimoNode node = new PrimoNode(BigInteger.valueOf(2));
+        Start.head = PrimoNode.head(node);
+        PrimoNode.add(BigInteger.valueOf(3));
+        Start.atual = PrimoNode.ultimo.get();
     }
 
 }
