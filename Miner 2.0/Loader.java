@@ -10,14 +10,17 @@ public class Loader {
         // Verifica se o arquivo não existe
         if (!file.exists()) {
             try {
-                // Se não existir, cria um novo arquivo e adiciona os primeiros números primos
-                Binarydb db = new Binarydb();
-                PrimoNode.add(BigInteger.valueOf(2));
-                PrimoNode.add(BigInteger.valueOf(3));
-                db.escreverPrimos("primes_db.bin", PrimoNode.head); // Corrigido para passar o caminho do arquivo e a cabeça da lista
+                Start.head = PrimoNode.head(new PrimoNode(new BigInteger("2")));
+                Savior.save(BigInteger.valueOf(3));
+                Start.atual = BigInteger.valueOf(3);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            Binarydb db = new Binarydb();
+            Start.head = PrimoNode.head(new PrimoNode(new BigInteger("2")));
+            db.carregarPrimos(Start.head);
+            Start.atual = PrimoNode.ultimo.get();
         }
     }
     

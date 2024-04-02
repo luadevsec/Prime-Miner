@@ -12,10 +12,10 @@ public class Start {
 
         Loader.load();
         
-        int bilion = 1000000000;
 
         Miner miner = new Miner();
-        while(atual.compareTo(BigInteger.valueOf(bilion)) < 0){
+        
+        while(true){
             miner.mine();
         }
     }

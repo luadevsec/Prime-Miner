@@ -1,4 +1,6 @@
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -9,6 +11,7 @@ public class Binarydb {
 
     public void escreverPrimos(PrimoNode head) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath))) {
+
             PrimoNode current = head;
             while (current != null) {
                 dos.writeUTF(current.get().toString()); // Escreve o inteiro no arquivo
@@ -20,6 +23,18 @@ public class Binarydb {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath, true))) {
             dos.writeUTF(primo.toString()); // Escreve o inteiro no arquivo
         }
+    }
+
+    public void carregarPrimos(PrimoNode head){
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
+            while (dis.available() > 0) {
+                BigInteger primo = new BigInteger(dis.readUTF());
+                PrimoNode.add(primo);
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar os primos do arquivo");
+        }
+        
     }
     
 }
