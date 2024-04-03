@@ -5,25 +5,21 @@ public class Miner {
 
     // classe responsavel por minerar os numeros primos
 
-    private PrimoNode pointer = Start.head;
+    private PrimoNode pointer;
 
-    public void mine() throws IOException{
-        BigInteger gen = Generator.generate();
+
+    public boolean mine(PrimoNode src, BigInteger gen) {
         BigInteger meia = gen.divide(BigInteger.valueOf(2));
-    
         boolean isPrime = true;
-        pointer = Start.head; // Reinicialize o ponteiro para o início da lista a cada chamada de mine
+        pointer = src;
         while(pointer != null && pointer.get().compareTo(meia) <= 0){
             if(gen.remainder(pointer.get()).compareTo(BigInteger.ZERO) == 0){
                 isPrime = false;
                 break;
             }
-            pointer = pointer.next(); // Atualize o ponteiro para o próximo nó
+            pointer = pointer.next();
         }
-    
-        if(isPrime){
-            Savior.save(gen);
-        }
+        return isPrime;
     }
     
     
