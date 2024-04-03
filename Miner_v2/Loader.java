@@ -1,6 +1,10 @@
 import java.io.File;
 import java.math.BigInteger;
 
+import Generic.PrimoNode;
+
+
+
 public class Loader {
     // classe responsavel por carregar os dados no inicio do programa
 

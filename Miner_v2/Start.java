@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.math.BigInteger;
 
+import Generic.Generator;
+import Generic.PrimoNode;
 import Multi.MultiMiner;
 
 public class Start {

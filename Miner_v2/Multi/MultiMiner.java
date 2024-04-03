@@ -1,8 +1,8 @@
 package Multi;
 import java.math.BigInteger;
 
-import Miner_v2.Miner;
-import Miner_v2.PrimoNode;
+import Generic.Miner;
+import Generic.PrimoNode;
 
 public class MultiMiner extends Miner{
 

@@ -1,5 +1,5 @@
 
-package Miner_v2;
+package Generic;
 import java.math.BigInteger;
 
 public abstract class Miner extends Thread{

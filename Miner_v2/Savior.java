@@ -1,6 +1,10 @@
 import java.io.IOException;
 import java.math.BigInteger;
 
+import Generic.PrimoNode;
+
+package Miner_v2;
+
 public class Savior {
 
     // classe responsavel por salvar os dados 

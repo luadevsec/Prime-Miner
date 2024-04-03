@@ -1,4 +1,7 @@
+package Generic;
+
 import java.math.BigInteger;
+
 
 public class PrimoNode {
 

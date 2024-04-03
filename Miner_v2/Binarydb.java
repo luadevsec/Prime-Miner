@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 
+import Generic.PrimoNode;
+
 public class Binarydb {
 
     private final String filePath = "primes_db.bin";
