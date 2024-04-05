@@ -6,7 +6,7 @@ public class FocusMiner {
     public static void main(String[] args) {
         MatrixNode matrix = new MatrixNode(10);
 
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i <= 102; i++) {
             matrix.createNode(BigInteger.valueOf(i));
         }
 

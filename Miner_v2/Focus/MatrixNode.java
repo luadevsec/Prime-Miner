@@ -6,6 +6,7 @@ public class MatrixNode {
     private long HEADLIMIT;
     private static Node universalHead = null;
     private static Node universalTail = null;
+    private static Node auxiliarTail = null;
 
     private long cont = 0;
 
@@ -17,20 +18,27 @@ public class MatrixNode {
     }
 
     public void createNode(BigInteger value) {
-        if (universalTail == null && universalHead == null) {
+        if (universalHead == null) {
             universalHead = new Node(value);
             universalTail = universalHead;
             pointer = universalHead;
         } else {
             if (cont < HEADLIMIT) {
-                pointer.head(new Node(value));
+                Node target = new Node(value);
+                pointer.head(target);
+                if (auxiliarTail != null) {
+                    auxiliarTail.next(target);
+                    auxiliarTail = auxiliarTail.head();
+                }
                 pointer = pointer.head();
                 cont++;
+                
             } else {
                 cont = 0;
                 universalTail.next(new Node(value));
+                auxiliarTail = universalTail.head();
                 universalTail = universalTail.next();
-                pointer = universalTail;
+                pointer = universalTail.head();
             }
         }
     }
