@@ -36,7 +36,7 @@ public class Node {
     public void lerall() {
         Node point = this;
         while (point != null) {
-            System.out.println(point.get());
+            System.out.print(" "+point.get());
             point = point.next();
         }
     }

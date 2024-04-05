@@ -4,17 +4,19 @@ import java.math.BigInteger;
 
 public class FocusMiner {
     public static void main(String[] args) {
-        MatrixNode matrix = new MatrixNode(10);
+        final long HEADLIMIT = 20   ;
 
-        for (int i = 1; i <= 102; i++) {
+        MatrixNode matrix = new MatrixNode(HEADLIMIT);
+
+        for (int i = 1; i <= 750; i++) {
             matrix.createNode(BigInteger.valueOf(i));
         }
 
         Node head;
-        for (int each = 0; each < 10; each++) {
+        for (int each = 0; each < HEADLIMIT; each++) {
             head = matrix.getHead(each);
             head.lerall();
-            System.out.println("--------------------");
+            System.out.println("\n ------------------------------------");
         }
     }
 }

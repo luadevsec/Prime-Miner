@@ -8,7 +8,7 @@ public class MatrixNode {
     private static Node universalTail = null;
     private static Node auxiliarTail = null;
 
-    private long cont = 0;
+    private long cont = 1;
 
     private Node pointer = universalHead;
 
@@ -27,18 +27,18 @@ public class MatrixNode {
                 Node target = new Node(value);
                 pointer.head(target);
                 if (auxiliarTail != null) {
-                    auxiliarTail.next(target);
+                    auxiliarTail.head().next(target);
                     auxiliarTail = auxiliarTail.head();
                 }
                 pointer = pointer.head();
                 cont++;
                 
             } else {
-                cont = 0;
+                cont = 1;
                 universalTail.next(new Node(value));
-                auxiliarTail = universalTail.head();
+                auxiliarTail = universalTail;
                 universalTail = universalTail.next();
-                pointer = universalTail.head();
+                pointer = universalTail;
             }
         }
     }
