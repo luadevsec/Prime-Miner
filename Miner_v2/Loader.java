@@ -1,6 +1,7 @@
 import java.io.File;
 import java.math.BigInteger;
 
+import Generic.Binarydb;
 import Generic.PrimoNode;
 
 

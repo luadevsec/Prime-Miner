@@ -1,3 +1,4 @@
+package Generic;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -5,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 
-import Generic.PrimoNode;
+import Focus.MatrixNode;
 
 public class Binarydb {
 
@@ -37,6 +38,20 @@ public class Binarydb {
             System.out.println("Erro ao carregar os primos do arquivo");
         }
         
+    }
+
+    public BigInteger carregarPrimos(MatrixNode matrix) {
+        BigInteger last = null;
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
+            while (dis.available() > 0) {
+                BigInteger primo = new BigInteger(dis.readUTF());
+                matrix.createNode(primo);
+                last = primo;
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar os primos do arquivo");
+        }
+        return last;
     }
     
 }

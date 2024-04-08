@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.math.BigInteger;
 
+import Generic.Binarydb;
 import Generic.PrimoNode;
 
 package Miner_v2;

@@ -2,6 +2,8 @@
 package Generic;
 import java.math.BigInteger;
 
+import Focus.Sindicato;
+
 public abstract class Miner extends Thread{
 
     // classe responsavel por minerar os numeros primos
@@ -16,24 +18,30 @@ public abstract class Miner extends Thread{
     }
 
     public void run(){
-        isPrime = mine();
+        mine();
         // mata a thread
+        Sindicato.miners--;
         Thread.currentThread().interrupt();
 
     }
 
 
-    public boolean mine() {
+    public void mine() {
         BigInteger meia = gen.divide(BigInteger.valueOf(2));
         PrimoNode pointer = src;
-        while(pointer != null && pointer.get().compareTo(meia) <= 0){
-            if(gen.remainder(pointer.get()).compareTo(BigInteger.ZERO) == 0){
-                isPrime = false;
-                break;
+        while(Sindicato.isPrime){
+            while(Sindicato.isPrime && pointer != null && pointer.get().compareTo(meia) <= 0){
+                if(gen.remainder(pointer.get()).compareTo(BigInteger.ZERO) == 0){
+                    validate();
+                    break;
+                }
+                pointer = pointer.next();
             }
-            pointer = pointer.next();
         }
-        return isPrime;
+    }
+
+    public void validate(){
+        Sindicato.isPrime = false;
     }
     
     
